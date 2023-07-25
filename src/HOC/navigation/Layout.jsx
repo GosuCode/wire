@@ -11,6 +11,7 @@ const Layout = ({ children }) => {
         id: 0,
         status: false,
     })
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         axios.get("http://localhost:3001/auth/user", {
@@ -32,7 +33,7 @@ const Layout = ({ children }) => {
     }, []);
     return (
         <div>
-            <AuthContext.Provider value={{ authState, setAuthState }}>
+            <AuthContext.Provider value={{ authState, setAuthState, search, setSearch }}>
                 <Navbar />
                 {children}
             </AuthContext.Provider>

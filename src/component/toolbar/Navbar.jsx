@@ -9,7 +9,7 @@ import User from './User'
 
 const Navbar = () => {
     const [show, setShow] = useState(false);
-    const { authState } = useContext(AuthContext)
+    const { authState, setSearch } = useContext(AuthContext)
 
     return (
         <>
@@ -23,6 +23,7 @@ const Navbar = () => {
                         <div className='flex w-[420px] h-10 px-2 py-[6px] border border-slate-400 rounded-sm'>
                             <input type="search" name="" id="" placeholder="Search..."
                                 className='md:w-full focus:outline-none lg:w-50'
+                                onChange={(e) => setSearch(e.target.value)}
                             />
                             <FiSearch className='text-2xl' />
                         </div>
