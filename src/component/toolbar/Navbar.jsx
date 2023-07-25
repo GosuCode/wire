@@ -42,7 +42,7 @@ const Navbar = () => {
                             Create Post
                         </Link> */}
                         <div className='mx-1 p-2 text-xl grid items-center hover:text-yellow-500'><RiNotification3Line /></div>
-                        <div className='h-14 grid items-center' onMouseEnter={() => setShow(!show)}>
+                        <div className='h-14 grid items-center' onClick={() => setShow(!show)}>
                             <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
                         </div>
                     </div>

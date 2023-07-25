@@ -9,7 +9,7 @@ import Register from './component/Authentication/Register';
 import UpdatePost from './component/createPost/UpdatePost';
 import 'react-loading-skeleton/dist/skeleton.css'
 import "react-toastify/dist/ReactToastify.css";
-import Profile from './component/pages/Profile';
+import Profile from './component/profile/Profile';
 
 function App() {
   return (

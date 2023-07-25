@@ -3,6 +3,7 @@ import { FcAbout, FcContacts, FcHome, FcReading, FcList } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+
     const sidebarData = [
         {
             name: 'Home',
