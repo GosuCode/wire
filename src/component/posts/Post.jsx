@@ -35,7 +35,7 @@ const Post = () => {
                     : val.title.toLowerCase().includes(search)
             }).map((val, i) => {
                 return (
-                    <div key={i} className='bg-white rounded-md shadow-md'>
+                    <div key={i} className='bg-white rounded-md shadow-md mb-6'>
                         <div key={i}>
                             <Link to={`/postById/${val.id}`}>
                                 <div className='w-full'>

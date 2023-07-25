@@ -37,9 +37,9 @@ const Navbar = () => {
                     </>
                 ) : (
                     <div className="flex items-center">
-                        <Link to={'/createPost'} className='border px-2 py-1 border-blue-500 rounded-md mr-2 grid items-center md:px-[15px] md:h-10 font-bold text-blue-600 hover:bg-blue-600 hover:text-white'>
+                        {/* <Link to={'/createPost'} className='border px-2 py-1 border-blue-500 rounded-md mr-2 grid items-center md:px-[15px] md:h-10 font-bold text-blue-600 hover:bg-blue-600 hover:text-white'>
                             Create Post
-                        </Link>
+                        </Link> */}
                         <div className='mx-1 p-2 text-xl grid items-center hover:text-yellow-500'><RiNotification3Line /></div>
                         <div className='h-14 grid items-center' onMouseEnter={() => setShow(!show)}>
                             <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
