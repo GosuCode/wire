@@ -139,7 +139,7 @@ const SingleMain = () => {
                         </h1>
                     </div>
                 </div>
-                <div className="px-3 md:px-16 md:p-0 py-8 font-serif">
+                <div className="px-3 md:px-16 md:p-0 py-8 font-serif mt-10 text-xl leading-10">
                     <p dangerouslySetInnerHTML={{ __html: blog.description }} />
                 </div>
                 <hr />

@@ -34,7 +34,7 @@ const Post = () => {
                 })
                 .map((val, i) => {
                     return (
-                        <div key={i} className='bg-white rounded-md shadow-md mb-6'>
+                        <div key={i} className='bg-white rounded-md shadow-md mb-6 mt-4'>
                             <div key={i}>
                                 <Link to={`/postById/${val.id}`}>
                                     <div className='w-full'>

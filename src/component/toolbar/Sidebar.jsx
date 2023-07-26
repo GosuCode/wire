@@ -13,7 +13,7 @@ const Sidebar = () => {
         {
             name: 'Reading List',
             icon: <FcReading />,
-            path: '/',
+            path: '/readingList',
         },
         {
             name: 'Listings',

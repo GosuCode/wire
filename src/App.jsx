@@ -10,6 +10,7 @@ import UpdatePost from './component/createPost/UpdatePost';
 import 'react-loading-skeleton/dist/skeleton.css'
 import "react-toastify/dist/ReactToastify.css";
 import Profile from './component/profile/Profile';
+import ReadingList from './component/pages/ReadingList';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route exact path='/updatePost/:id' element={<UpdatePost />} />
             <Route exact path='/postById/:id' element={<SinglePost />} />
             <Route exact path='/login' element={<Login />} />
+            <Route exact path='/readingList' element={<ReadingList />} />
             <Route exact path='/register' element={<Register />} />
           </Routes>
         </Layout>

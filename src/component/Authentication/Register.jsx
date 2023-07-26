@@ -45,6 +45,17 @@ function Register() {
                         <p className="h-1">
                             <ErrorMessage name="username" component="span" className="text-rose-500" />
                         </p>
+
+                        <Field
+                            autoComplete="off"
+                            name="email"
+                            placeholder="email"
+                            className="shadow-sm h-10 shadow-slate-400 px-8 border-b-2 focus:outline-none border-blue-500"
+                        />
+                        <p className="h-1">
+                            <ErrorMessage name="username" component="span" className="text-rose-500" />
+                        </p>
+
                         <Field
                             autoComplete="off"
                             type="password"
