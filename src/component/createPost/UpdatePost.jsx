@@ -11,7 +11,7 @@ const validationSchema = yup.object().shape({
     description: yup.string().required('Description is required.')
 })
 
-const UpdatePostasd = () => {
+const UpdatePost = () => {
     const { id } = useParams();
     const location = useLocation();
     const [showimage, setShowImage] = useState("");
@@ -130,4 +130,4 @@ const UpdatePostasd = () => {
     )
 }
 
-export default UpdatePostasd
+export default UpdatePost

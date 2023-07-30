@@ -1,4 +1,4 @@
-import user from '../../assets/user.jpg'
+import user from '../../assets/user.png'
 
 const User = () => {
     return (

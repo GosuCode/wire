@@ -1,6 +1,5 @@
-import user from '../../assets/user.jpg'
+import user from '../../assets/user.png'
 import logo from '../../assets/logo.png'
-// import { RiNotification3Line } from 'react-icons/ri'
 import { FiSearch } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../helpers/AuthContext'
@@ -38,12 +37,11 @@ const Navbar = () => {
                     </>
                 ) : (
                     <div className="flex items-center">
-                        {/* <Link to={'/createPost'} className='border px-2 py-1 border-blue-500 rounded-md mr-2 grid items-center md:px-[15px] md:h-10 font-bold text-blue-600 hover:bg-blue-600 hover:text-white'>
-                            Create Post
-                        </Link> */}
-                        {/* <div className='mx-1 p-2 text-xl grid items-center hover:text-yellow-500'><RiNotification3Line /></div> */}
-                        <div className='h-12 grid items-center' onClick={() => setShow(!show)}>
-                            <img src={user} alt="" className='h-full absolute rounded-full m-1 p-2' />
+                        <div>
+                            Welcome <strong className='uppercase'>{authState.username} </strong>!
+                        </div>
+                        <div className='h-12 cursor-pointer grid items-center' onClick={() => setShow(!show)}>
+                            <img src={user} alt="user-profile" className='h-full absolute rounded-full m-1 p-2' />
                         </div>
                     </div>
                 )}

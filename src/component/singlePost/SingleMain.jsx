@@ -1,4 +1,4 @@
-import user from '../../assets/user.jpg'
+import user from '../../assets/user.png'
 import { GoComment } from 'react-icons/go'
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { useContext, useEffect, useRef, useState } from "react"

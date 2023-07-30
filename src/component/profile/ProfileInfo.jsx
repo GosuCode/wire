@@ -39,7 +39,7 @@ const ProfileInfo = () => {
                     className="border border-blue-500 rounded-md grid items-center px-[15px] h-10 font-bold text-blue-600 hover:bg-blue-600 hover:text-white">
                     <button>SIGN OUT</button>
                 </Link>
-                <Link to='/update'
+                <Link to='/profile'
                     className="border border-blue-500 rounded-md grid items-center px-[15px] h-10 font-bold text-blue-600 hover:bg-blue-600 hover:text-white">
                     <button>UPDATE PROFILE</button>
                 </Link>
