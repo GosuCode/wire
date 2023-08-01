@@ -1,24 +1,30 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../helpers/AuthContext';
 
 const ProfileInfo = () => {
+
+    const { authState } = useContext(AuthContext);
+
     const UserInfo = [
         {
             name: 'name',
-            data: 'Alember Shreesh',
+            data: `${authState.username}`,
         },
         {
             name: 'email',
-            data: 'shreeshalember@gmail.com'
+            data: `example@gmail.com`
         },
         {
             name: 'about',
-            data: 'I love to read story.'
+            data: 'I write code sometimes.'
         },
         {
             name: 'registered',
-            data: '2023-06-05'
+            data: `2023-06-23`
         },
     ]
+
 
     return (
         <div className="mt-8">

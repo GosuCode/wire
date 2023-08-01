@@ -34,7 +34,7 @@ const User = () => {
     }, []);
 
     return (
-        <div className="w-48 text-black absolute top-12 rounded-md right-0 bg-white shadow-sm shadow-slate-400
+        <div className="w-48 text-black fixed top-12 rounded-md right-0 bg-white shadow-sm shadow-slate-400
         mt-4 mr-1 p-2">
             <ul>
                 <li className="px-4 py-2 cursor-pointer hover:bg-indigo-100 rounded-md font-semibold">
@@ -42,21 +42,6 @@ const User = () => {
                         {authState.username}
                     </Link>
                 </li> <hr />
-                <li className="px-4 py-2 cursor-pointer rounded-md opacity-60 hover:opacity-100 hover:bg-indigo-100">
-                    <div>
-                        Dashboard
-                    </div>
-                </li>
-                <li className="px-4 py-2 cursor-pointer rounded-md opacity-60 hover:opacity-100 hover:bg-indigo-100">
-                    <div>
-                        Create Post
-                    </div>
-                </li>
-                <li className="px-4 py-2 cursor-pointer rounded-md opacity-60 hover:opacity-100 hover:bg-indigo-100">
-                    <div>
-                        Reading List
-                    </div>
-                </li>
                 <li onClick={logout} className="px-4 cursor-pointer py-2 rounded-md opacity-60 hover:opacity-100 hover:bg-indigo-100">
                     <div>
                         Sign Out

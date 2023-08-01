@@ -1,7 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify'
 import Marquee from "react-fast-marquee";
 import register from '../../assets/register.jpg'
 
@@ -10,6 +11,7 @@ function Register() {
         username: "",
         password: "",
     };
+    const navigate = useNavigate();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3).max(15).required(),
@@ -17,8 +19,15 @@ function Register() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/auth", data).then(() => {
-            console.log(data);
+        axios.post("http://localhost:3001/auth", data).then((response) => {
+            if (response.status === 400) {
+                // Show a toast warning if user already exists
+                console.log(response.data, 'hello');
+                toast.warning("User already exists!");
+            } else {
+                // Navigate to a different page or show success message
+                navigate("/login");
+            }
         });
     };
 
@@ -84,6 +93,7 @@ function Register() {
                             <img src={register} alt="login boy" className="h-[380px] rounded-xl" />
                         </div>
                     </div>
+                    <ToastContainer />
                 </Form>
             </Formik>
         </div>

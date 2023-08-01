@@ -8,8 +8,10 @@ import axios from "axios";
 const Layout = ({ children }) => {
     const [authState, setAuthState] = useState({
         username: "",
+        email: "",
         id: 0,
         status: false,
+        createdAt: ""
     })
     const [search, setSearch] = useState('');
 
@@ -25,6 +27,8 @@ const Layout = ({ children }) => {
                 } else {
                     setAuthState({
                         username: response.data.username,
+                        email: response.data.email,
+                        createdAt: response.data.createdAt,
                         id: response.data.id,
                         status: true,
                     });

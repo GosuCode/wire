@@ -10,6 +10,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { RiDeleteBin5Fill } from 'react-icons/ri'
 import { AiFillEdit } from 'react-icons/ai'
 import { toast, ToastContainer } from 'react-toastify'
+import moment from 'moment'
 import axios from "axios"
 
 const SingleMain = () => {
@@ -86,6 +87,20 @@ const SingleMain = () => {
             });
     };
 
+    const bookmark = (id) => {
+        axios
+            .delete(`http://localhost:3001/posts/${id}`, {
+                headers: { accessToken: localStorage.getItem("accessToken") },
+            })
+            .then(() => {
+                navigate("/");
+            });
+    };
+
+    const formatCreatedAt = (timestamp) => {
+        return moment(timestamp).format("MMMM Do YYYY");
+    };
+
     return (
         <>
             <div className="fixed md:ml-10 mt-24">
@@ -98,7 +113,7 @@ const SingleMain = () => {
                 <div onClick={scrollToComment} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <GoComment className="text-2xl hover:text-blue-500" />
                 </div>
-                <div className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
+                <div onClick={bookmark} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <BsBookmark className="text-2xl hover:text-yellow-400" />
                 </div>
                 <div className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
@@ -113,9 +128,9 @@ const SingleMain = () => {
                     <div className='grid items-center'>
                         <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
                     </div>
-                    <div className='grid items-center py-3'>
-                        <div className='text-sm font-semibold'>{blog.username}</div>
-                        <span className='text-xs'>Jul 9 (13 mins ago)</span>
+                    <div className='grid items-center py-3 capitalize'>
+                        <div className='font-semibold text-base'>{blog.username}</div>
+                        <span className='text-xs'>{formatCreatedAt(blog.createdAt)}</span>
                     </div>
                 </div>
                 {authState.username === blog.username && (
@@ -153,8 +168,8 @@ const SingleMain = () => {
                     <>
                         <div className="">
                             <div className='flex mb-4'>
-                                <span>
-                                    <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
+                                <span className=' capitalize bg-purple-700 text-xl text-white rounded-full h-10 w-10 grid place-items-center m-1 p-1' >
+                                    {authState.username.charAt(0)}
                                 </span>
                                 <div className="mb-3">
                                     <input name="" id="" cols="80" rows="2"
@@ -171,12 +186,12 @@ const SingleMain = () => {
                             {comments.map((val, key) => {
                                 return (
                                     <div className='grid grid-cols-12 items-center' key={key}>
-                                        <span className='col-start-1 col-span-2 md:col-span-1'>
-                                            <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
+                                        <span className='col-start-1 col-span-2 md:col-span-1 capitalize bg-purple-700 text-xl text-white rounded-full h-10 w-10 grid place-items-center'>
+                                            {val.username.charAt(0)}
                                         </span>
                                         <div className='col-start-3 md:col-start-2 col-span-full p-4'>
                                             <div>
-                                                <button className='text-sm font-semibold'>{val.username}</button>
+                                                <button className='text-sm font-semibold capitalize'>{val.username}</button>
                                             </div>
                                             <div className='px-3 mb-4 text-sm flex justify-between'>
                                                 <p>
