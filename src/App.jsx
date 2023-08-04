@@ -11,6 +11,8 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import "react-toastify/dist/ReactToastify.css";
 import Profile from './component/profile/Profile';
 import ReadingList from './component/pages/ReadingList';
+import Faq from './component/pages/Faq';
+import Contact from './component/pages/Contact';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/readingList' element={<ReadingList />} />
             <Route exact path='/register' element={<Register />} />
+            <Route exact path='/faq' element={<Faq />} />
+            <Route exact path='/contact' element={<Contact />} />
           </Routes>
         </Layout>
       </Router>

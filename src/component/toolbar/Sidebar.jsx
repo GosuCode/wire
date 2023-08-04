@@ -23,7 +23,7 @@ const Sidebar = () => {
         {
             name: 'FAQ',
             icon: <FaLightbulb className='text-yellow-200' />,
-            path: '/',
+            path: '/faq',
         },
         {
             name: 'About',

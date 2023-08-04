@@ -121,9 +121,9 @@ const SingleMain = () => {
                 </div>
             </div>
             <div className="col-start-3 col-span-9 md:col-start-3 md:col-span-7 mt-16 md:mt-24 bg-white shadow-sm shadow-slate-400">
-                <div>
+                <Link to={`http://localhost:3001/${blog.image}`}>
                     <img src={`http://localhost:3001/${blog.image}`} alt="" className='w-full h-40 md:h-[340px] rounded-t-md' />
-                </div>
+                </Link>
                 <div className='flex mt-4'>
                     <div className='grid items-center'>
                         <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
@@ -155,6 +155,7 @@ const SingleMain = () => {
                     </div>
                 </div>
                 <div className="px-3 md:px-16 md:p-0 py-8 font-serif mt-10 text-xl leading-10">
+                    <span className='text-sm'>Last Updated: {formatCreatedAt(blog.updatedAt)}</span>
                     <p dangerouslySetInnerHTML={{ __html: blog.description }} />
                 </div>
                 <hr />
