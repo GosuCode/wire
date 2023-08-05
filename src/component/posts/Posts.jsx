@@ -50,7 +50,7 @@ const Posts = () => {
         <>
             <div className='flex text-xl hover:cursor-pointer pt-14'>
                 <div className='hover:font-semibold py-2 px-3' onClick={handleSortClick}>
-                    {latestFirst ? 'Oldest' : 'Latest'}
+                    {latestFirst ? 'Latest' : 'Oldest'}
                 </div>
             </div>
             <>
