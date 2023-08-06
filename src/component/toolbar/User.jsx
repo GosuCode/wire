@@ -34,7 +34,7 @@ const User = () => {
     }, []);
 
     return (
-        <div className="w-48 text-black fixed top-12 rounded-md right-0 bg-white shadow-sm shadow-slate-400
+        <div className="w-48 z-10 text-black fixed top-12 rounded-md right-0 bg-white shadow-sm shadow-slate-400
         mt-4 mr-1 p-2">
             <ul>
                 <li className="px-4 py-2 cursor-pointer hover:bg-indigo-100 rounded-md font-semibold">

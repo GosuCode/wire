@@ -1,7 +1,7 @@
 
 const Listings = () => {
     return (
-        <div className="bg-white md:mt-16 border-gray-200 border rounded-md p-4">
+        <div className="bg-white md:mt-16 fixed border-gray-200 border rounded-md mx-10 p-4">
             <div className="flex justify-between">
                 <div>
                     Listing
