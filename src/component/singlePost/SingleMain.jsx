@@ -87,15 +87,15 @@ const SingleMain = () => {
             });
     };
 
-    const bookmark = (id) => {
-        axios
-            .delete(`http://localhost:3001/posts/${id}`, {
-                headers: { accessToken: localStorage.getItem("accessToken") },
-            })
-            .then(() => {
-                navigate("/");
-            });
-    };
+    // const bookmark = (id) => {
+    //     axios
+    //         .post(`http://localhost:3001/posts/${id}`, {
+    //             headers: { accessToken: localStorage.getItem("accessToken") },
+    //         })
+    //         .then(() => {
+    //             navigate("/");
+    //         });
+    // };
 
     const formatCreatedAt = (timestamp) => {
         return moment(timestamp).format("MMMM Do YYYY");
@@ -113,7 +113,7 @@ const SingleMain = () => {
                 <div onClick={scrollToComment} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <GoComment className="text-2xl hover:text-blue-500" />
                 </div>
-                <div onClick={bookmark} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
+                <div className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <BsBookmark className="text-2xl hover:text-yellow-400" />
                 </div>
                 <div className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">

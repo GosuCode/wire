@@ -4,23 +4,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../helpers/AuthContext";
 import Marquee from "react-fast-marquee";
 import originalBoy from '../../assets/originalBoy.png'
+import { ToastContainer, toast } from "react-toastify";
 
 function Login() {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { setAuthState } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
     const login = () => {
-        const data = { username: username, password: password };
+        const data = { email: email, password: password };
         axios.post("http://localhost:3001/auth/login", data).then((response) => {
             if (response.data.error) {
-                alert(response.data.error);
+                toast.error("Wrong email or password")
             } else {
                 localStorage.setItem("accessToken", response.data.token);
                 setAuthState({
                     username: response.data.username,
+                    email: response.data.email,
                     id: response.data.id,
                     status: true,
                 });
@@ -38,15 +40,15 @@ function Login() {
 
             <div className="flex z-10 rounded-lg drop-shadow-xl mt-36 bg-white h-[400px]">
                 <div className="h-[385px] w-[300px] grid justify-items-center">
-                    <p>{setAuthState.username}</p>
+                    <p>{setAuthState.email}</p>
                     <h3 className="text-2xl">Login</h3>
                     <input
                         type="text"
                         onChange={(event) => {
-                            setUsername(event.target.value);
+                            setEmail(event.target.value);
                         }}
                         autoComplete="off"
-                        placeholder="Username"
+                        placeholder="Email"
                         className="shadow-sm h-10 shadow-slate-400 px-8 border-b-2 focus:outline-none border-blue-500"
                     />
                     <input
@@ -75,6 +77,7 @@ function Login() {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 }
