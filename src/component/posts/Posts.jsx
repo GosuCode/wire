@@ -124,9 +124,6 @@ const Posts = () => {
                         <SkeletonLoader />
                     </div>
                 )}
-
-
-
             </>
         </>
     )

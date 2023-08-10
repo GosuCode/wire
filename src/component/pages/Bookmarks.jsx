@@ -4,15 +4,16 @@ import { Link } from "react-router-dom"
 import { AuthContext } from "../../helpers/AuthContext";
 
 const ReadingList = () => {
-    const [blogs, setBlogs] = useState([]);
+    const [bookmarks, setBookmarks] = useState([]);
     const { search } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/posts");
-                // await new Promise((resolve) => setTimeout(resolve, 1000));
-                setBlogs(response.data);
+                await axios.get("http://localhost:3001/bookmarks")
+                    .then((res) => {
+                        setBookmarks(res.data);
+                    })
             } catch (error) {
                 console.log(error);
             }
@@ -23,28 +24,28 @@ const ReadingList = () => {
     return (
         <div className="py-20 px-24">
             <div className='grid'>
-                {blogs && blogs
+                {bookmarks && bookmarks
                     .filter((val) => {
-                        return search.toLowerCase() === '' || val.title.toLowerCase().includes(search.toLowerCase());
+                        return search.toLowerCase() === '' || val.Post.title.toLowerCase().includes(search.toLowerCase());
                     }).map((val, i) => {
                         return <div key={i} >
                             <div className='w-full overflow-clip grid grid-cols-6 mb-6'>
                                 <div
                                     className='h-full w-full col-span-2 rounded-md bg-lime-500 cursor-pointer'
                                     style={{
-                                        backgroundImage: `url('http://localhost:3001/${val.image}')`,
+                                        backgroundImage: `url('http://localhost:3001/${val.Post.image}')`,
                                         backgroundSize: "cover",
                                         backgroundPosition: "center"
                                     }} />
                                 <div className='px-3 py-3 col-start-3 col-span-4'>
-                                    <div className='mb-1'><span>Business, Travel</span> <span>- July 2, 2023</span></div>
-                                    <h2 className='mb-4 font-bold'>{val.title}</h2>
-                                    <Link to={`/postById/${val.id}`}>
-                                        <div className='mb-4 line-clamp-2' dangerouslySetInnerHTML={{ __html: val.description }} />
+                                    <h2 className='mb-4 font-bold text-xl'>{val.Post.title}</h2>
+                                    <div className='mb-1 text-xs'><span> July 2, 2023</span></div>
+                                    <Link to={`/postById/${val.Post.id}`}>
+                                        <div className='mb-4 line-clamp-2' dangerouslySetInnerHTML={{ __html: val.Post.description }} />
                                     </Link>
                                     <div className='flex'>
-                                        <div>
-                                            <em>Alember Shreesh</em>
+                                        <div className="capitalize">
+                                            <em>{val.Post.username}</em>
                                         </div>
                                     </div>
                                 </div>

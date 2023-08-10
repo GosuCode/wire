@@ -11,9 +11,9 @@ const Sidebar = () => {
             path: '/',
         },
         {
-            name: 'Reading List',
+            name: 'Bookmarks',
             icon: <FcReading />,
-            path: '/readingList',
+            path: '/bookmarks',
         },
         {
             name: 'Listings',

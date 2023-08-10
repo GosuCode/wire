@@ -13,7 +13,7 @@ const ProfileInfo = () => {
         },
         {
             name: 'email',
-            data: `example@gmail.com`
+            data: `${authState.email}`
         },
         {
             name: 'about',
@@ -21,7 +21,7 @@ const ProfileInfo = () => {
         },
         {
             name: 'registered',
-            data: `2023-06-23`
+            data: `${authState.createdAt}`
         },
     ]
 
@@ -34,7 +34,7 @@ const ProfileInfo = () => {
                         return (
                             <div key={key} className='mt-8 grid grid-cols-6'>
                                 <label htmlFor={val.name} className='col-span-1 font-semibold capitalize'>{val.name} : </label>
-                                <div className='col-start-3'>{val.data}</div>
+                                <div className='col-start-3 col-span-full'>{val.data}</div>
                             </div>
                         )
                     })

@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
         email: "",
         id: 0,
         status: false,
-        createdAt: ""
+        createdAt: 0
     })
     const [search, setSearch] = useState('');
 

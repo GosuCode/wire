@@ -1,14 +1,12 @@
 import user from '../../assets/user.png'
 import { GoComment } from 'react-icons/go'
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useContext, useEffect, useRef, useState } from "react"
 import { AuthContext } from "../../helpers/AuthContext"
 import { MdDeleteForever } from 'react-icons/md'
 import { TbHeartPlus } from "react-icons/tb";
 import { BsBookmark } from "react-icons/bs";
 import { FiMoreHorizontal } from "react-icons/fi";
-import { RiDeleteBin5Fill } from 'react-icons/ri'
-import { AiFillEdit } from 'react-icons/ai'
 import { toast, ToastContainer } from 'react-toastify'
 import moment from 'moment'
 import axios from "axios"
@@ -19,7 +17,6 @@ const SingleMain = () => {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const { authState } = useContext(AuthContext);
-    const navigate = useNavigate();
     const commentRef = useRef(null);         //for scrolling down to the comment section
 
     const scrollToComment = () => {
@@ -77,25 +74,15 @@ const SingleMain = () => {
             });
     };
 
-    const deletePost = (id) => {
-        axios
-            .delete(`http://localhost:3001/posts/${id}`, {
-                headers: { accessToken: localStorage.getItem("accessToken") },
-            })
-            .then(() => {
-                navigate("/");
+    const bookmarkPost = (postId) => {
+        axios.post("http://localhost:3001/bookmarks",
+            { PostId: postId },
+            { headers: { accessToken: localStorage.getItem("accessToken") } }
+        )
+            .then((res) => {
+                if (res.data.error) toast.warning("User not logged In!")
             });
     };
-
-    // const bookmark = (id) => {
-    //     axios
-    //         .post(`http://localhost:3001/posts/${id}`, {
-    //             headers: { accessToken: localStorage.getItem("accessToken") },
-    //         })
-    //         .then(() => {
-    //             navigate("/");
-    //         });
-    // };
 
     const formatCreatedAt = (timestamp) => {
         return moment(timestamp).format("MMMM Do YYYY");
@@ -113,7 +100,9 @@ const SingleMain = () => {
                 <div onClick={scrollToComment} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <GoComment className="text-2xl hover:text-blue-500" />
                 </div>
-                <div className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
+                <div onClick={() => {
+                    bookmarkPost(blog.id)
+                }} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <BsBookmark className="text-2xl hover:text-yellow-400" />
                 </div>
                 <div className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
@@ -133,20 +122,7 @@ const SingleMain = () => {
                         <span className='text-xs'>{formatCreatedAt(blog.createdAt)}</span>
                     </div>
                 </div>
-                {authState.username === blog.username && (
-                    <div className='flex justify-between px-20 items-center'>
-                        <button className='text-red-500 md:text-2xl grid items-center'
-                            onClick={() => {
-                                deletePost(blog.id);
-                            }}
-                        >
-                            <RiDeleteBin5Fill />
-                        </button>
-                        <Link to={`/updatePost/${blog.id}`} state={blog}>
-                            <AiFillEdit className='text-purple-600 md:text-2xl' />
-                        </Link>
-                    </div>
-                )}
+
                 <div className='mt-8'>
                     <div className='pl-10'>
                         <h1 className='font-extrabold text-xl md:text-4xl font-sans'>

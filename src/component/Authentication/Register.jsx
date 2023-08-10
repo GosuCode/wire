@@ -10,22 +10,22 @@ function Register() {
     const initialValues = {
         username: "",
         password: "",
+        email: ""
     };
     const navigate = useNavigate();
 
     const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3).max(15).required(),
-        password: Yup.string().min(4).max(20).required(),
+        username: Yup.string().min(3).max(15).required("Username is required."),
+        password: Yup.string().min(8).max(20).required(),
+        email: Yup.string().email().required("Email is required.")
     });
 
     const onSubmit = (data) => {
         axios.post("http://localhost:3001/auth", data).then((response) => {
             if (response.status === 400) {
-                // Show a toast warning if user already exists
-                console.log(response.data, 'hello');
+                console.log(response.data, 'no boy');
                 toast.warning("User already exists!");
             } else {
-                // Navigate to a different page or show success message
                 navigate("/login");
             }
         });
@@ -51,18 +51,18 @@ function Register() {
                             placeholder="Username"
                             className="shadow-sm h-10 shadow-slate-400 px-8 border-b-2 focus:outline-none border-blue-500"
                         />
-                        <p className="h-1">
+                        <p className="h-2">
                             <ErrorMessage name="username" component="span" className="text-rose-500" />
                         </p>
 
                         <Field
                             autoComplete="off"
                             name="email"
-                            placeholder="email"
+                            placeholder="Email"
                             className="shadow-sm h-10 shadow-slate-400 px-8 border-b-2 focus:outline-none border-blue-500"
                         />
-                        <p className="h-1">
-                            <ErrorMessage name="username" component="span" className="text-rose-500" />
+                        <p className="h-2">
+                            <ErrorMessage name="email" component="span" className="text-rose-500" />
                         </p>
 
                         <Field
