@@ -1,3 +1,4 @@
+import ScrollToTop from "./ScrollToTop/ScrollToTop"
 import Listings from "./pages/Listings"
 import Posts from "./posts/Posts"
 import Sidebar from "./toolbar/Sidebar"
@@ -10,6 +11,7 @@ const Index = () => {
             </div>
             <div className="col-start-2 col-span-4 px-4 lg:col-start-4 lg:col-span-6">
                 <Posts />
+                <ScrollToTop />
             </div>
             <div className="lg:col-start-10 lg:col-span-3 lg:block hidden">
                 <Listings />
