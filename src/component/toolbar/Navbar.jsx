@@ -4,6 +4,7 @@ import { FiSearch } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../helpers/AuthContext'
 import { useContext, useState } from 'react'
+import { BsMoonStars } from 'react-icons/bs'
 import User from './User'
 
 const Navbar = () => {
@@ -48,7 +49,11 @@ const Navbar = () => {
                             <img src={user} alt="user-profile" className='h-12 w-12 rounded-full' />
                         </div>
                         <div>
-                            <button onClick={darkTheme} className='border border-blue-500 rounded-md mr-2 grid items-center px-[15px] h-10 font-bold text-blue-600 hover:bg-blue-600 hover:text-white'>Dark</button>
+                            {!theme ? (
+                                <button onClick={darkTheme} className='border border-black rounded-md mr-2 grid items-center px-[15px] h-10 font-bold hover:bg-black hover:text-white'><BsMoonStars /></button>
+                            ) : (
+                                <button onClick={darkTheme} className='border text-black border-white rounded-md mr-2 grid items-center px-[15px] h-10 font-bold hover:bg-blue-600 bg-white hover:text-white'><BsMoonStars /></button>
+                            )}
                         </div>
                     </div>
                 )}
