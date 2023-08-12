@@ -1,4 +1,3 @@
-import user from '../../assets/user.png'
 import { GoComment } from 'react-icons/go'
 import { Link, useParams } from "react-router-dom"
 import { useContext, useEffect, useRef, useState } from "react"
@@ -16,7 +15,7 @@ const SingleMain = () => {
     const [blog, setBlog] = useState([]);
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
-    const { authState } = useContext(AuthContext);
+    const { authState, theme } = useContext(AuthContext);
     const commentRef = useRef(null);         //for scrolling down to the comment section
 
     const scrollToComment = () => {
@@ -112,17 +111,19 @@ const SingleMain = () => {
                     <FiMoreHorizontal className="text-2xl hover:text-slate-500" />
                 </div>
             </div>
-            <div className="col-start-3 col-span-9 md:col-start-3 md:col-span-7 mt-16 md:mt-24 bg-white shadow-sm shadow-slate-400">
+            <div className={`col-start-3 col-span-9 md:col-start-3 md:col-span-7 mt-16 md:mt-24 ${!theme ? "bg-white" : "bg-[#121212]"}  shadow-sm shadow-slate-400`}>
                 <Link to={`http://localhost:3001/${blog.image}`}>
                     <img src={`http://localhost:3001/${blog.image}`} alt="" className='w-full h-40 md:h-[340px] rounded-t-md' />
                 </Link>
                 <div className='flex mt-4'>
                     <div className='grid items-center'>
-                        <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
+                        <span className='h-14 w-14 grid place-items-center text-4xl rounded-full m-1 p-1 capitalize bg-orange-400'>
+                            {blog.username.charAt(0)}
+                        </span>
                     </div>
                     <div className='grid items-center py-3 capitalize'>
                         <div className='font-semibold text-base'>{blog.username}</div>
-                        <span className='text-xs'>{formatCreatedAt(blog.createdAt)}</span>
+                        <span className='text-xs brightness-75'>{formatCreatedAt(blog.createdAt)}</span>
                     </div>
                 </div>
 
@@ -133,7 +134,7 @@ const SingleMain = () => {
                         </h1>
                     </div>
                 </div>
-                <div className="px-3 md:px-16 md:p-0 py-8 font-serif mt-10 text-xl leading-10">
+                <div className="px-3 md:px-16 md:p-20 py-8 font-serif mt-10 text-xl leading-10 brightness-90 text-justify">
                     <span className='text-sm'>Last Updated: {formatCreatedAt(blog.updatedAt)}</span>
                     <p dangerouslySetInnerHTML={{ __html: blog.description }} />
                 </div>
