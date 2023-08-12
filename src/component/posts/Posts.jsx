@@ -9,7 +9,7 @@ import SkeletonLoader from './SkeletonLoader'
 
 const Posts = () => {
 
-    const { search } = useContext(AuthContext);
+    const { search, theme } = useContext(AuthContext);
     const [blogs, setBlogs] = useState([]);
     const [latestFirst, setLatestFirst] = useState(true);
     const [loading, setLoading] = useState(true);
@@ -49,7 +49,7 @@ const Posts = () => {
     return (
         <>
             <div className='flex text-xl hover:cursor-pointer pt-14'>
-                <div className='hover:font-semibold py-2 px-3' onClick={handleSortClick}>
+                <div className={`hover:font-semibold py-2 px-3`} onClick={handleSortClick}>
                     {latestFirst ? 'Latest' : 'Oldest'}
                 </div>
             </div>
@@ -62,7 +62,7 @@ const Posts = () => {
                             })
                             .map((val, i) => {
                                 return (
-                                    <div key={i} className='bg-white rounded-md shadow-md mb-6 mt-4'>
+                                    <div key={i} className={`${!theme ? "bg-white" : "bg-[#121212]"} rounded-md shadow-md mb-6 mt-4`}>
                                         <div>
                                             <Link to={`/postById/${val.id}`}>
                                                 <div className='w-full'>
@@ -79,7 +79,7 @@ const Posts = () => {
                                                     </Link>
                                                     <div className='grid items-center py-2 capitalize'>
                                                         <div className='text-sm font-semibold'>{val.username}</div>
-                                                        <span className='text-xs'>{formatCreatedAt(val.createdAt)}</span>
+                                                        <span className='text-xs brightness-75'>{formatCreatedAt(val.createdAt)}</span>
                                                     </div>
                                                 </div>
 
@@ -90,7 +90,7 @@ const Posts = () => {
                                                                 {val.title}
                                                             </h1>
                                                         </div>
-                                                        <div className='flex justify-between items-center'>
+                                                        <div className='flex justify-between items-center brightness-75'>
                                                             <div className='flex items-center py-1 gap-2 text-lg'>
                                                                 <span>
                                                                     <GoComment />

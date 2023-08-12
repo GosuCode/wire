@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
         createdAt: 0
     })
     const [search, setSearch] = useState('');
+    const [theme, setTheme] = useState(false);
 
     useEffect(() => {
         axios.get("http://localhost:3001/auth/user", {
@@ -36,8 +37,8 @@ const Layout = ({ children }) => {
             });
     }, []);
     return (
-        <div>
-            <AuthContext.Provider value={{ authState, setAuthState, search, setSearch }}>
+        <div className={`${!theme ? "bg-[#f0f8ff] text-black" : "bg-[#20252b] text-white"}`}>
+            <AuthContext.Provider value={{ authState, setAuthState, search, setSearch, theme, setTheme }}>
                 <Navbar />
                 {children}
             </AuthContext.Provider>

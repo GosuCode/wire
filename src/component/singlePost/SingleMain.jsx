@@ -84,6 +84,7 @@ const SingleMain = () => {
             });
     };
 
+
     const formatCreatedAt = (timestamp) => {
         return moment(timestamp).format("MMMM Do YYYY");
     };
@@ -95,15 +96,17 @@ const SingleMain = () => {
                     likeAPost(blog.id);
                 }} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <TbHeartPlus className="text-2xl hover:text-rose-500" />
-                    {/* <span>{blog.Likes.length} </span> */}
+                    {/* <span>{likesCount.length} </span> */}
                 </button>
                 <div onClick={scrollToComment} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <GoComment className="text-2xl hover:text-blue-500" />
+                    {/* <span>{commentCount.length} </span> */}
                 </div>
                 <div onClick={() => {
                     bookmarkPost(blog.id)
                 }} className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <BsBookmark className="text-2xl hover:text-yellow-400" />
+                    {/* <span>{bookmarkCount.length} </span> */}
                 </div>
                 <div className="grid mt-8 justify-items-center w-12 h-12 items-center hover:bg-slate-200 rounded-full">
                     <FiMoreHorizontal className="text-2xl hover:text-slate-500" />

@@ -1,7 +1,10 @@
+import { useContext } from "react"
+import { AuthContext } from "../../helpers/AuthContext"
 
 const Listings = () => {
+    const { theme } = useContext(AuthContext)
     return (
-        <div className="bg-white md:mt-16 fixed border-gray-200 border rounded-md mx-10 p-4">
+        <div className={`${!theme ? "bg-white" : "bg-[#121212]"}  md:mt-16 fixed border-gray-200 border rounded-md mx-10 p-4`}>
             <div className="flex justify-between">
                 <div>
                     Listing
