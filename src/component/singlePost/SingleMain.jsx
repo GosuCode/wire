@@ -9,6 +9,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { toast, ToastContainer } from 'react-toastify'
 import moment from 'moment'
 import axios from "axios"
+import user from '../../assets/user.png'
 
 const SingleMain = () => {
     const { id } = useParams();
@@ -115,11 +116,9 @@ const SingleMain = () => {
                 <Link to={`http://localhost:3001/${blog.image}`}>
                     <img src={`http://localhost:3001/${blog.image}`} alt="" className='w-full h-40 md:h-[340px] rounded-t-md' />
                 </Link>
-                <div className='flex mt-4'>
+                <div className='flex mt-4 gap-2'>
                     <div className='grid items-center'>
-                        <span className='h-14 w-14 grid place-items-center text-4xl rounded-full m-1 p-1 capitalize bg-orange-400'>
-                            {blog.username.charAt(0)}
-                        </span>
+                        <img src={user} alt="user-image" className='h-14 w-14 rounded-full m-2 bg-orange-400' />
                     </div>
                     <div className='grid items-center py-3 capitalize'>
                         <div className='font-semibold text-base'>{blog.username}</div>

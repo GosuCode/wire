@@ -31,7 +31,7 @@ const ReadingList = () => {
                         return <div key={i} >
                             <div className='w-full overflow-clip grid grid-cols-6 mb-6'>
                                 <div
-                                    className='h-full w-full col-span-2 rounded-md bg-lime-500 cursor-pointer'
+                                    className='h-full w-full col-span-2 rounded-md bg-blue-500 cursor-pointer'
                                     style={{
                                         backgroundImage: `url('http://localhost:3001/${val.Post.image}')`,
                                         backgroundSize: "cover",
