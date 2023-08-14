@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { FaLightbulb } from 'react-icons/fa';
-import { FcAbout, FcContacts, FcHome, FcReading, FcList } from 'react-icons/fc';
+import { FcAbout, FcContacts, FcHome, FcReading } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../helpers/AuthContext';
 
@@ -17,11 +17,6 @@ const Sidebar = () => {
             name: 'Bookmarks',
             icon: <FcReading />,
             path: '/bookmarks',
-        },
-        {
-            name: 'Listings',
-            icon: <FcList />,
-            path: '/',
         },
         {
             name: 'FAQ',

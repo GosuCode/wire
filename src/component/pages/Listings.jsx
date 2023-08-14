@@ -5,17 +5,13 @@ const Listings = () => {
     const { theme } = useContext(AuthContext)
     return (
         <div className={`${!theme ? "bg-white" : "bg-[#121212]"}  md:mt-16 fixed border-gray-200 border rounded-md mx-10 p-4`}>
-            <div className="flex justify-between">
-                <div>
-                    Listing
-                </div>
-                <div>
-                    See all
-                </div>
-            </div>
-            <div className="mt-2">
-                List of paid advertisements on job or any other things. Need to pay for the ads while creating it.
-            </div>
+            <h1 className="text-3xl font-bold mb-2 text-justify">Welcome to Our Blog Reading Web App!</h1>
+            <p className="text-lg text-justify pt-6 leading-8">
+                Explore a world of captivating articles, thought-provoking stories, and insightful content. <br />
+                Whether you&apos;re a passionate reader or a curious mind, our platform offers a diverse range
+                of articles that will inspire, inform, and entertain you. <br /> Get ready to embark on a journey
+                of knowledge and discovery. <br /><span className="font-semibold">Start exploring now!</span>
+            </p>
         </div>
     )
 }

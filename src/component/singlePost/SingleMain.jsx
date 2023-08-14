@@ -81,6 +81,7 @@ const SingleMain = () => {
         )
             .then((res) => {
                 if (res.data.error) toast.warning("User not logged In!")
+                toast.success("Saved to Bookmark")
             });
     };
 
