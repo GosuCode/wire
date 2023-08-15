@@ -65,5 +65,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or feedback, please reach out to us at gosucode1945@gmai.com
+For any inquiries or feedback, please reach out to me at gosucode1945@gmai.com
 ```
