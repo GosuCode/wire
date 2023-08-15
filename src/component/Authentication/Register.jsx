@@ -21,14 +21,17 @@ function Register() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/auth", data).then((response) => {
-            if (response.status === 400) {
-                console.log(response.data, 'no boy');
-                toast.warning("User already exists!");
-            } else {
-                navigate("/login");
-            }
-        });
+        axios.post("http://localhost:3001/auth", data)
+            .then((response) => {
+                if (response.data.message) {
+                    toast.warning(response.data.message);
+                } else {
+                    navigate("/login");
+                }
+            })
+            .catch((error) => {
+                console.error("Error during registration:", error);
+            });
     };
 
     return (
