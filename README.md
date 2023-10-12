@@ -1,4 +1,5 @@
 # WIRE - Web App for Blog Reading
+![WIRE](https://github.com/GosuCode/WIRE./assets/104659592/c56b713b-25bb-4319-a0c0-43a2c110146e)
 
 WIRE is a web application designed to provide users with a platform to read and explore a wide variety of captivating articles, thought-provoking stories, and insightful content. Whether you're a passionate reader or a curious mind, WIRE offers a diverse range of articles that will inspire, inform, and entertain you.
 
