@@ -18,7 +18,7 @@ Before you start contributing to the frontend, make sure you have:
 - A GitHub account.
 - Git installed on your local machine.
 - Node.js and npm (Node Package Manager) installed on your local machine.
-- Yarn installed on your local machine.
+- Yarn/npm installed on your local machine.
 
 ## Contributing Guidelines
 
@@ -93,8 +93,8 @@ When you're ready to submit your changes, create a pull request (PR) following o
 
 ## Backend Reference Link
 
-You can find the reference link to the backend of the reivew-app here:
-`https://github.com/GosuCode/NODE-sequelize-MYSQL.git`
+You can find the reference link to the backend of the wire here:
+`https://github.com/GosuCode/wire-api.git`
 
 ## Code of Conduct
 
