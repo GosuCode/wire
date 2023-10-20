@@ -2,17 +2,21 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../helpers/AuthContext";
+// import SkellyList from "../posts/SkellyList";
 
 const ReadingList = () => {
     const [bookmarks, setBookmarks] = useState([]);
+    // const [loading, setLoading] = useState(true)
     const { search } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                // await new Promise(resolve => setTimeout(resolve, 1000));
                 await axios.get("http://localhost:3001/bookmarks")
                     .then((res) => {
                         setBookmarks(res.data);
+                        // setLoading(false)
                     })
             } catch (error) {
                 console.log(error);
@@ -23,6 +27,7 @@ const ReadingList = () => {
     }, []);
     return (
         <div className="py-20 px-24">
+            {/* {loading ? ( */}
             <div className='grid'>
                 {bookmarks && bookmarks
                     .filter((val) => {
@@ -54,6 +59,14 @@ const ReadingList = () => {
                     })
                 }
             </div>
+            {/* ) : (
+                <>
+                    <SkellyList />
+                    <SkellyList />
+                    <SkellyList />
+                    <SkellyList />
+                </>
+            )} */}
         </div>
     )
 }
