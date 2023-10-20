@@ -3,7 +3,6 @@ import Layout from './HOC/navigation/Layout';
 import Index from './component/Index';
 import SinglePost from './component/singlePost/SinglePost';
 import About from './component/pages/About';
-import CreatePost from '../src/component/createPost/CreatePost'
 import Login from './component/Authentication/Login';
 import Register from './component/Authentication/Register';
 import "react-toastify/dist/ReactToastify.css";
@@ -21,7 +20,6 @@ function App() {
             <Route exact path='/' element={<Index />} />
             <Route exact path='/about' element={<About />} />
             <Route exact path='/profile' element={<Profile />} />
-            <Route exact path='/createPost' element={<CreatePost />} />
             <Route exact path='/postById/:id' element={<SinglePost />} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/bookmarks' element={<Bookmarks />} />
