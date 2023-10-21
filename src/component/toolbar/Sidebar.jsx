@@ -35,7 +35,7 @@ const Sidebar = () => {
         },
     ]
     return (
-        <div className={`px-2 fixed md:top-16 bottom-0 bg-white w-full md:w-0 md:bg-transparent md:flex-col flex h-[8%] md:h-auto justify-around md:justify-normal`}>
+        <div className={`px-2 fixed md:top-16 bottom-0 bg-white w-full md:w-0 md:bg-transparent md:flex-col flex h-[8%] z-30 md:h-auto justify-around md:justify-normal`}>
             {sidebarData.map((val, key) => {
                 return (
                     <Link to={val.path} key={key} className={`group flex mt-5 lg:w-60 h-10 ${!theme ? "md:hover:bg-indigo-100" : "md:hover:bg-slate-500"}  rounded-md active:bg-white`}>
