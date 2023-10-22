@@ -7,7 +7,7 @@ const SkeletonLoader = () => {
                     <div className='w-full h-40 md:h-[300px] rounded-t-md animate-pulse bg-slate-200 bg-gradient-to-r from-slate-100 to-slate-200 '>
                     </div>
 
-                    <div className='px-5 md:py-5 mb-2'>
+                    <div className='px-5 pb-2 md:py-5 mb-2'>
                         <div className='flex'>
                             <div className='grid place-items-center text-2xl animate-pulse bg-slate-200 text-white font-semibold h-10 w-10 rounded-full m-1 p-1 capitalize'>
                             </div>
